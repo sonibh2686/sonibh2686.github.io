@@ -456,6 +456,42 @@ body[data-theme="dark"] .resume-dropdown-menu a:focus-visible { background: var(
     .resume-dropdown.is-open .resume-dropdown-menu { transform: translateY(0) scale(1); }
 }
 </style>
+
+<style>
+/* Fix resume dropdown clipping below the hero section */
+.hero-wrap {
+    position: relative;
+    z-index: 20;
+    overflow: visible;
+}
+.hero {
+    overflow: visible !important;
+}
+.hero-grid-premium,
+.hero-left,
+.buttons,
+.resume-dropdown {
+    position: relative;
+    overflow: visible;
+}
+.resume-dropdown {
+    z-index: 2000;
+}
+.resume-dropdown-menu {
+    z-index: 2100;
+}
+.kpi-strip {
+    position: relative;
+    z-index: 1;
+}
+@media (max-width: 760px) {
+    .resume-dropdown-menu {
+        max-height: min(430px, calc(100vh - 36px));
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+}
+</style>
 </head>
 <body id="top">
 <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
